@@ -1,31 +1,34 @@
 #!/usr/bin/env python
 #-------------------------------------------------------------------------------
-# Name:     Project Creator
-# Purpose:  Creates a template for Python, R and C++ Programs.
-#           Will add Makefile, C, and HTML/CSS support later
-# Version:  1.0
-# Author:   Jack Simpson
-# Email:    jack.simpson@anu.edu
-# Created:  2015-02-06
+# Name:         Code Template
+# Purpose:      Creates a template for Python, R and C++ Programs.
+#               Will add Makefile, C, and HTML/CSS support later
+# Version:      1.0
+# Licence:      MIT License
+# Author:       Jack Simpson
+# Email:        jack.simpson@jacksimpson.co
+# Created:      2015-02-06
 #-------------------------------------------------------------------------------
 # These modules are available in the Standard Library of Python 2.7 and 3.4
 import sys
 import os
 import datetime
 
-AUTHOR = 'Jack Simpson'
-EMAIL = 'jack.simpson@anu.edu.au'
-DATE = datetime.date.today()
+AUTHOR =    'Jack Simpson'
+EMAIL =     'jack.simpson@jacksimpson.co'
+DATE =      datetime.date.today()
+LICENCE =   'MIT Licence'
 
 def create_cpp_project():
     '''Generates a c++ template'''
     contents = '''/*******************************************************************************
-* Name:     
-* Purpose:  
-* Version:  1.0
-* Author:   %s
-* Email:    %s 
-* Created:  %s
+* Name:         
+* Purpose:      
+* Version:      1.0
+* Licence:      %s
+* Author:       %s
+* Email:        %s 
+* Created:      %s
 *******************************************************************************/
 
 #include <iostream>
@@ -39,7 +42,7 @@ int main (int argc, char *argv[])
 }
 
 
-''' % (AUTHOR, EMAIL, DATE)
+''' % (LICENCE, AUTHOR, EMAIL, DATE)
     return contents
 
 def create_python_project():
@@ -48,10 +51,11 @@ def create_python_project():
 #-------------------------------------------------------------------------------
 # Name:     
 # Purpose:  
-# Version:  1.0
-# Author:   %s
-# Email:    %s
-# Created:  %s
+# Version:      1.0
+# Licence:      %s
+# Author:       %s
+# Email:        %s
+# Created:      %s
 #-------------------------------------------------------------------------------
 # These modules are available in the Standard Library of Python
 
@@ -64,7 +68,7 @@ def main():
 if __name__ == "__main__":
     main()
         
-''' % (AUTHOR, EMAIL, DATE)
+''' % (LICENCE, AUTHOR, EMAIL, DATE)
     return contents 
 
 def create_r_project():
@@ -72,11 +76,12 @@ def create_r_project():
     contents = '''#!/usr/bin/env Rscript
 #-------------------------------------------------------------------------------
 # Name:     
-# Purpose:  
-# Version:  1.0
-# Author:   %s
-# Email:    %s
-# Created:  %s
+# Purpose:      
+# Version:      1.0
+# Licence:      %s
+# Author:       %s
+# Email:        %s
+# Created:      %s
 #-------------------------------------------------------------------------------
 
 rm(list=ls())                                   # clear workspace variables
@@ -90,7 +95,7 @@ data_file_name <- ""
 csv_file <- read.table(data_file_name, sep = ",", head = F, skip = 0, stringsAsFactors = F)
 
 
-''' % (AUTHOR, EMAIL, DATE)
+''' % (LICENCE, AUTHOR, EMAIL, DATE)
     return contents
 
 
