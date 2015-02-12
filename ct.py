@@ -99,16 +99,37 @@ csv_file <- read.table(data_file_name, sep = ",", head = F, skip = 0, stringsAsF
     return contents
 
 
-def create_web_project():
-    '''Generates a web project in a folder with HTML, CSS and JS'''
-    pass
 
 def create_c_project():
-    '''Generates a C program template'''
-    pass
+    '''Generates a C template'''
+    contents = '''/*******************************************************************************
+* Name:         
+* Purpose:      
+* Version:      1.0
+* Licence:      %s
+* Author:       %s
+* Email:        %s 
+* Created:      %s
+*******************************************************************************/
+
+#include <stdio.h>
+
+int main (int argc, char *argv[])
+{
+    
+    return 0;
+}
+
+
+''' % (LICENCE, AUTHOR, EMAIL, DATE)
+    return contents
 
 def create_makefile_project():
     '''Generates a makefile template'''
+    pass
+
+def create_web_project():
+    '''Generates a web project in a folder with HTML, CSS and JS'''
     pass
 
 def main():
@@ -117,9 +138,10 @@ def main():
     
     for each_file in sys.argv[1:]:
         directories = os.path.dirname(each_file)
-        print(directories)
-        if not os.path.exists(directories):
-            os.makedirs(directories)
+        if directories:
+            if not os.path.exists(directories):
+                os.makedirs(directories)
+        
         filename, extension = os.path.splitext(each_file)
     
         if extension  == '.py':
@@ -128,11 +150,15 @@ def main():
         elif extension == '.cpp':
             file_contents = create_cpp_project()
 
+        elif extension == '.c' or extension == '.cc':
+            file_contents = create_c_project()
+
         elif extension == '.R' or extension == '.r':
             file_contents = create_r_project()
 
         else:
             print('Could not recognise file ' + each_file)
+            continue
 
         open_file = open(each_file, 'w')
         open_file.write(file_contents)
