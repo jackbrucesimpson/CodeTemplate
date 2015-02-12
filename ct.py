@@ -112,27 +112,31 @@ def create_makefile_project():
     pass
 
 def main():
-    if len(sys.argv) != 2:
-        sys.exit("Please supply the path to the file")    
+    if len(sys.argv) == 1:
+        sys.exit("Please specify the name of at least one program: e.g. test.py")    
     
-    file_contents = ''
-    filename, extension = os.path.splitext(sys.argv[1])
+    for each_file in sys.argv[1:]:
+        directories = os.path.dirname(each_file)
+        print(directories)
+        if not os.path.exists(directories):
+            os.makedirs(directories)
+        filename, extension = os.path.splitext(each_file)
     
-    if extension  == ".py":
-        file_contents = create_python_project()
+        if extension  == '.py':
+            file_contents = create_python_project()
 
-    elif extension == ".cpp":
-        file_contents = create_cpp_project()
+        elif extension == '.cpp':
+            file_contents = create_cpp_project()
 
-    elif extension == ".R":
-        file_contents = create_r_project()
+        elif extension == '.R' or extension == '.r':
+            file_contents = create_r_project()
 
-    else:
-        sys.exit("Invalid file")
+        else:
+            print('Could not recognise file ' + each_file)
 
-    open_file = open(sys.argv[1], 'w')
-    open_file.write(file_contents)
-    open_file.close()
+        open_file = open(each_file, 'w')
+        open_file.write(file_contents)
+        open_file.close()
 
 if __name__ == "__main__":
     main()
