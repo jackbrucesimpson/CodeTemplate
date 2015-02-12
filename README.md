@@ -1,2 +1,2 @@
 # CodeTemplate
-Creates a template for Python, R and C++ Programs.
+Creates a template for Python, R, C and C++ Programs.
