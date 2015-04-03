@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 #-------------------------------------------------------------------------------
 # Name:         Code Template
-# Purpose:      Creates a template for Python, R and C++ Programs.
-#               Will add Makefile, C, and HTML/CSS support later
+# Purpose:      Creates a template for Python, R, C and C++ Programs.
+#               Will add Makefile, and HTML/CSS support later
 # Version:      1.0
 # Licence:      MIT License
 # Author:       Jack Simpson
@@ -15,7 +15,7 @@ import os
 import datetime
 
 AUTHOR =    'Jack Simpson'
-EMAIL =     'jack.simpson@jacksimpson.co'
+EMAIL =     'jack@jacksimpson.co'
 DATE =      datetime.date.today()
 LICENCE =   'MIT Licence'
 
@@ -75,7 +75,7 @@ def create_r_project():
     '''Generates an R program template'''
     contents = '''#!/usr/bin/env Rscript
 #-------------------------------------------------------------------------------
-# Name:     
+# Name:         
 # Purpose:      
 # Version:      1.0
 # Licence:      %s
